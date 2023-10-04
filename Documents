@@ -1,0 +1,39 @@
+What is Golang used for?
+Go, also called Golang or Go language, is an open source programming language that Google developed. Software developers use Go in 
+an array of operating systems and frameworks to develop web applications, cloud and networking services, and other types of software.
+
+package main
+import "fmt"
+
+func main()  {
+	fmt.Println("Hello world!!!")
+}
+
+Line 5: It contains the package main of the program, which have overall content of the program.It is the initial point to run the program, 
+		So it is compulsory to write.
+		
+Line 6: It contains import “fmt”, it is a preprocessor command which tells the compiler to include the files lying in the package.
+Line 8: main function, it is beginning of execution of program.
+Line 9: fmt.Println() is a standard library function to print something as a output on screen.In this, 
+		fmt package has transmitted Println method which is used to display the output.
+		
+Question : How do we run the code in our project?
+Answer : Using Go CLI :
+		1- go build : compiles a bunch of source code files.
+		2- go run : compiles and executes one or two files.
+		3- go fmt : formats all the code in each file in the current directory.
+		4- go install : compiles and "installs" a package.
+		5- go get : downloads the raw source code of someone else package.
+		6- go test : runs any test associated with the current project.
+
+Question : What does 'package main' mean?
+Answer : in Go package == project == workspace.
+		1- means it is consider as the main folder or package and it creates executable files.
+		2- This is a very important to write at the very beginning.
+		
+		Types of packages :
+		1- Executable : It generates a file that we can run anywhere. It must have a func called main.
+		2- Reusable : code use as a helpers. It is a good place for put logic. Can be used as a dependency.
+		
+		package main -> go build -> main.exe (if we ran this file, the function named as main will automatically ran).
+		package calculator -> go build -> nothing! (compiling a non-main package).
