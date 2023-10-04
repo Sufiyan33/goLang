@@ -43,3 +43,9 @@ Answer : It is a standard library of Go for input. fmt means format, the console
 		ex : math, encoding, io, fmt, crypto.
 		- very similar to printf or scanf like we have in c language.
 		ex : fmt.Sprintf("%[2]d %[1]d\n", 11, 22)
+		
+Question : What's that 'func' thing?
+Answer : func means function, we already have seen in other languages, you can say methods.
+		func : Tell's go we are about declare a function.
+		main : set the name of the functions.
+		() : List of the arguments to pass the functions.  
