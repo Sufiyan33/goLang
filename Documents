@@ -37,3 +37,9 @@ Answer : in Go package == project == workspace.
 		
 		package main -> go build -> main.exe (if we ran this file, the function named as main will automatically ran).
 		package calculator -> go build -> nothing! (compiling a non-main package).
+		
+Question : What does import 'fmt' means?
+Answer : It is a standard library of Go for input. fmt means format, the console so that it becomes easy to debug.
+		ex : math, encoding, io, fmt, crypto.
+		- very similar to printf or scanf like we have in c language.
+		ex : fmt.Sprintf("%[2]d %[1]d\n", 11, 22)
