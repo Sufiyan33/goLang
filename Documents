@@ -48,4 +48,5 @@ Question : What's that 'func' thing?
 Answer : func means function, we already have seen in other languages, you can say methods.
 		func : Tell's go we are about declare a function.
 		main : set the name of the functions.
-		() : List of the arguments to pass the functions.  
+		() : List of the arguments to pass the functions. 
+		
