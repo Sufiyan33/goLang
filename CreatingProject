@@ -1,0 +1,11 @@
+Here, we are going to create a real time project related to card.
+While working on project, we will learn a lot that how to declare, variables, arrays, functions, loops, error handling & a lot.
+
+This project will have below functions or part :
+1 : newDeck - Create a list of playing cards, Essentially an array of strings.
+2 : Print - Log out the contents of a deck of cards.
+3 : shuffle - Shuffles all the cards in a deck.
+4 : Deal - Create a hand of cards.
+5 : saveToFile - Save a list of cards to a file on the local machine.
+6 : newDeckFromFile - Load a list of cards from the local machine.
+
