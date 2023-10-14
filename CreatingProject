@@ -78,6 +78,14 @@ Array, Slices and for Loops :
 		
 	-> Index - index of this element in the array.
 	-> Card - Current card we are iterating over.
-	 
+	-> range cards - Take the slice of 'cars' & loop over it.
+	Example :
+		for i, card := range cards{
+			fmt.Println(i, card)	
+		}
+		
+Important :: If you are declaring any variable and not using any where then Go Compiler will give you compilation issue.
+
+
 		 
 	
