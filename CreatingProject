@@ -134,3 +134,13 @@ Create a new Deck :
 		fruits[0 : 2] - it means start from zero & up to 2 but not include 2(means 0,1).
 		fruits[ : 2] - it means start from zero up to 2 but not include 2(means 0,1).
 		fruits[2 : ] - it means start from 2 till end
+		
+Multiple Return values :
+	-> Function can return multiple values and when someone calls this method then you have to store it.
+	-> As we know if you have declare a deck then deck can call any method having receivers type deck.
+		Example :	
+			func deal(d deck, handSize int) (deck, deck){
+					return d[:handSize], d[handSize:]
+			}
+	-> And the time of calling this method will also return value hence store them like below :
+		hand, remainingCards := deal(cards, 5)
