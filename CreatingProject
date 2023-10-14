@@ -86,6 +86,33 @@ Array, Slices and for Loops :
 		
 Important :: If you are declaring any variable and not using any where then Go Compiler will give you compilation issue.
 
-
+OOPS Approach vs Go Approach :
+	-> Go is not a Object oriented programming language. Hence There is no concept of classes in Go.
+	-> We can use Deck class which have some properties and give privileges that how to create instances and all.
+	-> you can use customize way to handle it :
+		like : type deck []string
+				OR
+			   Function with 'deck' as a receiver
+	
+	Custom type declaration :
+	-> you can also declare slice like below :
+		type deck []string
+	-> Remember this point type deck == []string   :: both are equal
+	Example :
+		cards := []string{"Diamond", "star", newCard}
+	-> you can write above example like as below :
+		type deck []string
+		cards := deck{"Diamond", "star", "Two"}
+	
+	Receiver Functions:
+	-> Any variable of type "deck" now gets access to the "print" method.
+	Example :
+		func (d deck) print(){
+			for i, card := range cards{
+				fmt.Println(i, card)
+			}
+		}
 		 
+		-> d - Actually copy of the deck we are working with is available in the function as a variable called 'd'.(you can think as a reference variable)
+		-> deck - Every variable of type 'deck' can call this function on itself.
 	
