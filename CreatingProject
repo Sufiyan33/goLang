@@ -43,5 +43,41 @@ Method Declarations :
 	-> Here newCard - is method name
 	-> Data types & this is also a return type of method
 	-> means when executed, this function will return a value of type String.
+	Example :: 
+	package method
+	import "fmt"
+	func method(){
+		card := newCard()
+		fmt.Println(card) 
+	}
+
+	func newCard() string{
+		return "Declaring method here"
+	}
+	
+Array, Slices and for Loops :
+	GoLand uses two types of data structure :
+	1 - Array : has fixed length of size
+	2 - Slices : it similar to array that can grow and shrink depends on requirements(Dynamic array)
+	
+	Slices :: 
+	-> At the time of declaring slices make sure that all the element should have same data types.
+		example : if one is String then whole elements should be String not such like one String and other is int. no
+	-> Let's declare slices :
+		cards := []string{"Diamond", "star", newCard}
+	-> you can append another slices or you can modify slices like below :
+		cards = append(cards, "Fish")
+	-> You can print this cards or you can use for loop to do the same.
+	
+	For Loops ::
+	-> It is same like what you are using in Java but syntax are different.
+		Syntax :
+		for index, card := range cards{
+			fmt.Println(card)
+		}
+		
+	-> Index - index of this element in the array.
+	-> Card - Current card we are iterating over.
+	 
 		 
 	
