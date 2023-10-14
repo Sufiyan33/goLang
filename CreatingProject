@@ -116,3 +116,21 @@ OOPS Approach vs Go Approach :
 		-> d - Actually copy of the deck we are working with is available in the function as a variable called 'd'.(you can think as a reference variable)
 		-> deck - Every variable of type 'deck' can call this function on itself.
 	
+Create a new Deck :
+	-> Added new deck in deck.go file
+	-> Don't forget to check that file, I also added suit & value
+		Example :
+		for i, suit := range cardSuits{
+		}
+	-> If you declared variable & not using anywhere then compiler will give you compilation issue Hence to avoid this replace variable with '_'
+		like as : for _, suit := range cardSuits{
+		}
+		
+	Slice Range Syntax :
+	-> Slices work similarly array.
+	-> But to access the element of slices, GO have some different strategy. Let's check
+	Syntax :
+		fruits[startIndexIncluding : upToNotIncluding]
+		fruits[0 : 2] - it means start from zero & up to 2 but not include 2(means 0,1).
+		fruits[ : 2] - it means start from zero up to 2 but not include 2(means 0,1).
+		fruits[2 : ] - it means start from 2 till end
