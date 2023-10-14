@@ -144,3 +144,28 @@ Multiple Return values :
 			}
 	-> And the time of calling this method will also return value hence store them like below :
 		hand, remainingCards := deal(cards, 5)
+
+Byte Slices :
+	-> You can go official webSite of GoLand -> packages & then explore "ioutil" package. Inside this you will found lots of package but click on
+		writeFile and once check it's parameter. It accepting []bytes.
+	-> If you will open asciitable.com then you will be able to see list of character and their values.
+	-> Go also supports type conversion where we can convert as per our expectations.
+		Example :
+			[]byte("Hi There!!!")
+		-> Type we want - byte
+		-> Value we have - Hi there!!!
+	
+	-> Question : How to convert below into byte slice?
+	-> Answer : 
+		greeting := "Hi There!!!"
+		fmt.Println([]byte(greeting))
+		Output : [72 105 32 84 104 101 114 101 33 33 33]
+
+	-> Question : How to convert deck into string?
+	-> Answer : convert deck in byte by using one by one steps :
+		deck -> []string -> string -> []byte
+	Step 1 : convert deck to string. for this import strings package from go library.
+			func (d deck) toString() string{
+				return strings.Join([]string(d), ",")
+			} 
+		-> it will give you a list of strings
