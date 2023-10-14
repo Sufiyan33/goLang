@@ -9,3 +9,39 @@ This project will have below functions or part :
 5 : saveToFile - Save a list of cards to a file on the local machine.
 6 : newDeckFromFile - Load a list of cards from the local machine.
 
+Variable Declarations :
+	-> Before going to explain variable let's check which types of Go language is?
+	-> There are two types of languages :
+		1- Dynamic Types : ex JavaScript, Ruby, Python etc.
+		2- Static Types : C++, Java, Go etc.
+		
+	-> Since Go comes under static types hence while declaring variable we need to provide data types of variables.
+		example : 
+			var card string = "this is variable declaration example"
+			OR
+	-> You can also declare variable like below but in this case Go compiler will automatically recognize data types.
+		card := "This is testing of variable declaration"
+	
+	Important : Please do not use := if you are re-assigning the variable. It should be only applicable first time.
+		example : card = "five diamonds"
+	
+	Types of Go variable :
+		The below are few basic types of variable in Go.
+		1- bool		: true or false
+		2- string	: "Hello"
+		3- int		: 0, 12
+		4- float64	: 10.0001
+		
+	-> Remember, like as java you can also define variable outside of the function and access or assign value inside the function.
+
+Method Declarations :
+	Like as java you can declare method in go but here the structures are changed. Let see how?
+	example : 
+		func newCard() String{
+			return "Method declared"
+		}
+	-> Here newCard - is method name
+	-> Data types & this is also a return type of method
+	-> means when executed, this function will return a value of type String.
+		 
+	
