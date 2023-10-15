@@ -193,3 +193,19 @@ Reading File from hard drive :
 	return deck(s)
 	}
 	
+Shuffle deck :
+	-> Means take a card and change the location
+	-> We don't have any in-build function to shuffle cards
+	-> For this, write for loop, generate a random number which comes under random package & then swap it.
+	Example :
+		func (d deck) shuffle(){
+			source := rand.NewSource(time.now().UnixNano())
+			r := rand.New(source)
+
+			for i := range d {
+				newPosition = rand.Intn(len(d) - )
+				//Now do swapping
+				d[i], d[newPosition] = d[newPosition], d[i]
+			}
+		}
+
