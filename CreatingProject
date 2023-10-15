@@ -174,4 +174,22 @@ Saving Data to hard drive :
 				return ioutil.WriteFile(fileName, []byte(d.toString()), 0666)
 			}
 			then go to main.go and call this function to save cards.
+			
+Reading File from hard drive :
+	-> For this just explore the packages(ioutils) & need to import correct one. It provide a lots of method just use ReadFile fun
+	-> Remember ReadFile func also dealing with error hence don't forget to handle error which comes under os package
+	Example :
+	func newDeckFromFile(fileName string) deck{
+		bs, err := ioutil.ReadFile(fileName)
+		//Option 1 : Log the error & return a call to newDeck
+		//Option 2 : log the error & entirely quite the program
+	if err != nil {
+		fmt.Println("Error", err)
+		os.Exit(1)  //means program is not success and quite program
+	}
+
+	//Here, Line 51 returning bs (means byte slices), we need to convert it into strings then deck
+	s := strings.split(string(bs), ",") //this is a string, now convert in deck
+	return deck(s)
+	}
 	
