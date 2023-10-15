@@ -161,11 +161,17 @@ Byte Slices :
 		fmt.Println([]byte(greeting))
 		Output : [72 105 32 84 104 101 114 101 33 33 33]
 
+Saving Data to hard drive :
 	-> Question : How to convert deck into string?
 	-> Answer : convert deck in byte by using one by one steps :
 		deck -> []string -> string -> []byte
-	Step 1 : convert deck to string. for this import strings package from go library.
+	Step 1 : Convert deck to string. for this import strings package from go library.
 			func (d deck) toString() string{
 				return strings.Join([]string(d), ",")
-			} 
-		-> it will give you a list of strings
+			}
+	Step 2 : Now save this file into local hard drive. For this you need to import io/ioutils package & then
+			func (d deck) saveToFile(fileName string) error{
+				return ioutil.WriteFile(fileName, []byte(d.toString()), 0666)
+			}
+			then go to main.go and call this function to save cards.
+	
