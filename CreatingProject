@@ -231,4 +231,18 @@ Testing with Go :
 			t.Errorf("Expected deck length of 16, but got %v", len(d))
 		}
 	}
+	
+Question : Write a program to check number is even or odd?
+Answer : Below are the code :
+	func main() {
+		numbers := []int{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
+
+		for _, num := range numbers {
+			if num%2 == 0 {
+				fmt.Println(num, "is even")
+			} else {
+				fmt.Println(num, "is odd %v")
+			}
+		}
+	} 
 	 
