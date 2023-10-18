@@ -209,3 +209,26 @@ Shuffle deck :
 			}
 		}
 
+Testing with Go :
+	-> Remember that Go is not supporting any testing framework like : Rspec, mocha, jasmine, selenium, Junit etc
+	-> Go provides a very small interface to do testing.
+	-> To create a new test file, create a file ending with _test.go.
+		Example : deck_test.go
+	-> To run all tests in a package, run the below command :
+		go test
+	-> There are two things which you need to know if you are using visual studio for writing code :
+		1- Run package tests : means run all the test cases written in whole package.
+		2- run file tests : means run all the test cases which have written in same file.
+	
+	How to write test cases :
+	-> First import "testing" package
+	-> Create new function but make sure while writing test function name should be start from capital.
+	Example :
+		func TestNewDeck(t *testing.T){
+			d := newDeck()
+
+			if len(d) != 16 {
+			t.Errorf("Expected deck length of 16, but got %v", len(d))
+		}
+	}
+	 
