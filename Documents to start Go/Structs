@@ -1,7 +1,7 @@
 Here, we will learn what is Structs?
----------------
-	STRUCT
----------------
+-------------------------
+		STRUCT
+-------------------------
 -> Struct is a data structure in GoLang. It is a collection of properties that are related to together.
 	It is very similar to JavaScript struct or similar to Hash in Ruby language.
 		Example :
@@ -10,9 +10,9 @@ Here, we will learn what is Structs?
 -> It is widely used in GoLang. So read it carefully.
 -> Whenever you want to create a structs before that just define all the properties which structs may have.
 
----------------
+-------------------------
 	Create Structs 
----------------
+-------------------------
 -> Here we will create a project to understand the concept. So let's start.
 -> Define a structs of type person. Here may be person have some field which we want to declare for structs.
 	Example :
@@ -44,3 +44,33 @@ Here, we will learn what is Structs?
 		fmt.Println(suf)
 		fmt.Printf("%+v", suf)
 	}
+
+-------------------------
+	Embedding Structs
+-------------------------
+-> Means that you can create structs inside another structs.
+-> for example person must have contact details or address. So here you can create two construct of type person & contact info then inside person
+	structs call the contact infor structs.
+-> This is very similar like spring data jpa that what we do when we add @embedded
+	Example : Declaring 
+		type contactInfo struct {
+			email   string
+			pinCode int
+		}
+
+		type person struct {
+			firstName string
+			lastName  string
+			contact   contactInfo
+		} 
+		
+	Example : Assigning values
+		jim := person{
+			firstName: "Amit",
+			lastName:  "kumar",
+			contact: contactInfo{
+				email:   "amit@gmai.com",
+				pinCode: 560037,
+			},
+		}
+		fmt.Printf("%+v", jim)
