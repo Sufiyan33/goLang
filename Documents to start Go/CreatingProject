@@ -31,6 +31,12 @@ Variable Declarations :
 		2- string	: "Hello"
 		3- int		: 0, 12
 		4- float64	: 10.0001
+	-> Default or zero values of Go variables
+		Variable :					Zero values :
+		string							""
+		int								0
+		float							0
+		bool							false
 		
 	-> Remember, like as java you can also define variable outside of the function and access or assign value inside the function.
 
