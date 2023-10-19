@@ -9,6 +9,11 @@ Here, we will learn what is Structs?
 		value -> String
 -> It is widely used in GoLang. So read it carefully.
 -> Whenever you want to create a structs before that just define all the properties which structs may have.
+------------
+  Important :
+------------
+-> Remember, when we create a struct and pass to a function then Go internally make copy of whole struct & whenever you will do modification then
+	you will do on copy not on original struct.
 
 -------------------------
 	Create Structs 
@@ -74,3 +79,62 @@ Here, we will learn what is Structs?
 			},
 		}
 		fmt.Printf("%+v", jim)
+
+-------------------------
+	Structs with Receiver functions
+-------------------------
+-> here, we will see that how to create struct with Receiver functions means function will receive receiver and by using that we can function from
+	anywhere with receiver name.
+	Example :
+		func (p person) print() {
+		fmt.Printf("%+v", p)
+		}
+	-> Now in struct where you have written jim, jsut call print function like : jim.print()
+-> Now I am going to create one more function name as update. Here I will try to update some fields of person. Let's see how to do that :
+	func (p person) UpdateName(newFirstName string) {
+		p.firstName = newFirstName
+	}
+-> I called the above function but it didn't update value after executing.
+
+-------------------------
+	Pass by value OR pointer in struct
+-------------------------
+-> Let's do some analysis that why update method didn't update name.
+-> In Go there is a concept of pointer & pass by value. As you know RAM has addresses of memory where data will or has been stored. And also have
+	it's value, where it stored.
+-> In order to update values do code changes as per below :
+	-> Adde below line where you have created struct of person & called jim.updateName() method
+		Like :
+			jimPointer := &jim
+			jimPointer.updateName("Sanjay")
+	-> Now made changes in updateName() function like as below :
+		func (pointerToPerson *person) UpdateName(newFirstName string) {
+			(*pointerToPerson).firstName = newFirstName
+		}
+	-> &jim - means Give me the memory address of value whom him is pointing.
+	-> *pointerToPerson - means Give me the value this memory address is pointing at. (also know as pointer operator)
+-------
+ Tips :
+-------
+-> If you have address and want to convert into value or vice versa then use below two approach :
+1 : Turn address into value with *address
+2 : Turn value into address with &value
+
+-------------------------
+	Value types VS Reference Types  
+-------------------------
+Values Types : with these use pointers to change things in a function (mean pointers requires to make changes or update).
+Reference Types : with these don't worry about pointer (mean no need to pointer to change or update values).
+
+			Values Types							Reference Types
+				int										slices
+				float									maps
+				string									channels
+				bool									pointers
+				structs									functions
+
+
+
+
+
+	
