@@ -90,7 +90,13 @@ Array, Slices and for Loops :
 			fmt.Println(i, card)	
 		}
 		
-Important :: If you are declaring any variable and not using any where then Go Compiler will give you compilation issue.
+Important :: 
+1 - If you are declaring any variable and not using any where then Go Compiler will give you compilation issue.
+	 To avoid this issue replace variable with under score ('_').
+2 - When you create a slice then Go internally generate 3 things for slice.
+	1 : is ptr to head - ptr pint to element of array 
+	2 : is capacity - tells the capacity or size of slice
+	3 : is length - tells length of slice
 
 OOPS Approach vs Go Approach :
 	-> Go is not a Object oriented programming language. Hence There is no concept of classes in Go.
