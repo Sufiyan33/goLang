@@ -1,1 +1,46 @@
 Here, we will learn what is Structs?
+---------------
+	STRUCT
+---------------
+-> Struct is a data structure in GoLang. It is a collection of properties that are related to together.
+	It is very similar to JavaScript struct or similar to Hash in Ruby language.
+		Example :
+		suite -> String
+		value -> String
+-> It is widely used in GoLang. So read it carefully.
+-> Whenever you want to create a structs before that just define all the properties which structs may have.
+
+---------------
+	Create Structs 
+---------------
+-> Here we will create a project to understand the concept. So let's start.
+-> Define a structs of type person. Here may be person have some field which we want to declare for structs.
+	Example :
+	Person have fields :					Person have values :
+		firstName -> String						firstName -> "Sufiyan
+		lastName -> String						lastName -> "Ahmad"
+
+-> Now create person structs and it's value.
+-> For this above the main function declare structs like below :
+	type person struct {
+		firstName string
+		lastName  string
+	}
+
+	func main() {
+-> There are 3 ways to assign values to struscts field :
+		// way : 1
+		sufi := person{"Sufiyan", "Ahmad"}
+		fmt.Println(sufi)
+	
+		// way : 2
+		name := person{firstName: "Sufiyan", lastName: "Ahmad"}
+		fmt.Println(name)
+	
+		//way : 3
+		var suf person
+		suf.firstName = "Sufiyan"
+		suf.lastName = "Ahmad"
+		fmt.Println(suf)
+		fmt.Printf("%+v", suf)
+	}
