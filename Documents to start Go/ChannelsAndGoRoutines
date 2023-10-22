@@ -80,3 +80,31 @@ Parallelism - Multiple threads executed at the exact same time. It requires mult
 -> A channel is a medium through which a go-routine communicates with another go-routine and this communication is lock-free.
 -> OR in other words, a channel is a technique which allows to let one go-routine to send data to another go-routine.
 -> By default channel is bidirectional, means the go-routines can send or receive data through the same channel.
+-> If your go-routine is a type of string then channel will also accept same type of data.
+
+-----------------
+	Creating a Channel
+-----------------
+-> We can create a channel by using "chan" keyword and it can only transfer data of the same type. 
+	Different types of data are not allowed to transport from the same channel.
+	
+	Syntax:
+		var Channel_name chan Type
+	Example : 
+		var mychannel chan int
+    	fmt.Println("Value of the channel: ", mychannel)
+ 
+-----------------
+	Sending Data with Channels
+-----------------
+-> Go provides various ways to handle the communications.
+1 : channel <- 5
+	sending the value '5' into this channel.
+2 : myNumber <- channel
+	Wait for a value to be sent into the channel. When we get one, assign the value to 'myNumber'.
+3 : fmt.Println(<- channel)
+	Wait for a value to be sent into the channel. When we get one, print into console.
+	
+------------------
+	Function Literal or Anonymous
+------------------
