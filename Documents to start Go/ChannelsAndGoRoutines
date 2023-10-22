@@ -1,1 +1,82 @@
 Here, I am going to add another important features of GO.
+Go language provides a special feature known as a Go-routines. 
+-----------------
+	Go-routines
+-----------------
+-> A go-routine is a lightweight thread managed by the Go runtime.
+-> A Go-routine is a function or method which executes independently and simultaneously in connection with any other Go-routines present in your program.
+-> OR in other words, every concurrently executing activity in Go language is known as a Go-routines.
+-> The cost of creating Go-routines is very small as compared to the thread.
+-> Every program contains at least a single Go-routine and that Go-routine is known as the main Go-routine.
+-> All the Go-routines are working under the main Go-routines if the main Go-routine terminated, then all the Go-routine present in the program also terminated.
+-> Go-routine always works in the background.
+-> There is one scheduler who sit between CPU & Go-routines that is called Go Scheduler.
+-> Scheduler runs one routine until it finishes or makes a blocking call(Like an HTTP request).
+-> By default go tries to use one core CPU!!!.
+-> But Go-routines behave slightly differently when it uses multiple CPU's.
+-> Scheduler runs one thread on each "logical" core.
+
+Concurrency - We can have multiple threads executing code. If one thread blocks, another one is picked up & worked on.
+Parallelism - Multiple threads executed at the exact same time. It requires multiple CPU's.
+
+-----------------
+	Create Go-routine
+-----------------
+-> When we launched our program then main routine created.
+-> We can create a routine or child routine by using "go" keyword before the function call.
+	Syntax :
+	func name(){}
+	
+	while calling this name function add go.
+	go name()
+	Examle :
+		func display(str string) { 
+		    for i := 0; i < 6; i++ { 
+		        fmt.Println(str) 
+		    } 
+		} 
+		func main() { 
+		    // Calling Goroutine 
+		    go display("Welcome") 
+		  
+		    // Calling normal function 
+		    display("To Go Programming😊") 
+		}
+
+-> But there is a one problem, It will display the result of only normal function and will not display the Go-routine result because when a new
+	Go-routine executed, go-routine call return immediately. The control does not wait for Go-routine to complete their execution just like
+	normal function. They always move forward to the next line after the go-routine calls & ignores the value return by the go-routine.
+-> Hence, to execute go-routine properly, made some changes in code like below :
+	func display(str string) { 
+	    for i := 0; i < 6; i++ { 
+	        time.Sleep(1 * time.Second) 
+	        fmt.Println(str) 
+	    } 
+	}
+-> Here, we added sleep() method which makes main Go-routine sleep for 1 second, In between 1 second new go-routine executes normal function 
+	& terminates after it. It goes until condition becomes negative.
+
+-> Remember this if you will mark any method to routine then you need to handle communication between various go-routines.
+	Example :
+	if you will add a go-routine inside main function, then you to do communication between main go-routine & newly created go-routing.
+-> Question is how to do that?
+-> Answer is Go provides another features to do communication between routing are called as "Channel".
+
+-----------------
+	Advantage
+-----------------
+-> Go-routines are cheaper than threads.
+-> Go-routine are stored in the stack and the size of the stack can grow and shrink according to the requirement of the program.
+	But in threads, the size of the stack is fixed.
+-> Go-routines can communicate using the channel and these channels are specially designed to prevent race conditions when accessing 
+	shared memory using Go-routines.
+-> Suppose a program has one thread, and that thread has many Go-routines associated with it. If any of Go-routine blocks the thread 
+	due to resource requirement then all the remaining Go-routines will assign to a newly created OS thread. All these details are hidden 
+	from the programmers.
+
+-----------------
+	Channels
+-----------------
+-> A channel is a medium through which a go-routine communicates with another go-routine and this communication is lock-free.
+-> OR in other words, a channel is a technique which allows to let one go-routine to send data to another go-routine.
+-> By default channel is bidirectional, means the go-routines can send or receive data through the same channel.
