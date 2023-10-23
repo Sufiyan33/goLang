@@ -101,13 +101,139 @@ Parallelism - Multiple threads executed at the exact same time. It requires mult
 1 : channel <- 5
 	sending the value '5' into this channel.
 2 : myNumber <- channel
-	Wait for a value to be sent into the channel. When we get one, assign the value to 'myNumber'.
+	Wait for a value to be sent into the channel. When we get one,   assign the value to 'myNumber'.
 3 : fmt.Println(<- channel)
 	Wait for a value to be sent into the channel. When we get one, print into console.
 	
-------------------
+-----------------
+	Send & Receive Data from a channel
+-----------------
+-> In Go languages, channel work with two principal one is sending & other is receiving.
+-> Both Operation collectively known as communication.
+-> And the direction of <- operator indicates whether the data is received or send.
+-> In the channel, the send or receive operations block until other side is not ready by default.
+-> It allows go-routine to synchronize with each other without explicit locks or condition variables.
+
+-------
+Send operation :
+-------
+-> The send operation is used to send data from one go-routine to another go-routine with the help of a channel.
+-> Values like int, float64, and bool can safe and easy to send through a channel because they are copied so there is no risk of accidental concurrent access of the same value.
+-> Similarly, strings are also safe to transfer because they are immutable. But for sending pointers or reference like a slice, map, etc.
+-> through a channel are not safe because the value of pointers or reference may change by sending go-routine or by the receiving go-routine
+	at the same time and the result is unpredicted.
+-> So, when you use pointers or references in the channel you must make sure that they can only access by the one go-routine at a time.
+	Syntax :
+		Mychannel <- element
+
+-------
+Receive operation:
+-------
+-> The receive operation is used to receive the data sent by the send operator.
+	Syntax :
+		element := <-Mychannel
+	
+-> The above statement indicates that the element receives data from the channel(Mychannel). 
+-> If the result of the received statement is not going to use is also a valid statement.
+-> You can also write a receive statement as :
+	Syntax : 
+		<-Mychannel
+	Example :
+		func myfunc(ch chan int) { 
+    	fmt.Println(234 + <-ch) 
+		} 
+		func main() { 
+	    	fmt.Println("start Main method") 
+		    // Creating a channel 
+		    ch := make(chan int) 
+		  
+		    go myfunc(ch) 
+		    ch <- 23 
+		    fmt.Println("End Main method") 
+		} 
+
+-------
+Closing a Channel
+-------
+-> You can also close a channel with the help of close() function. 
+-> This is an in-built function and sets a flag which indicates that no more value will send to this channel.
+	Syntax :
+		close()
+
+-> You can also close the channel using for range loop. Here, the receiver goroutine can check the channel is open or 
+	close with the help of the given.
+	 syntax :
+		ele, ok:= <- Mychannel
+		
+-> Here, if the value of ok is true which means the channel is open so, read operations can be performed.
+	And if the value of is false which means the channel is closed so, read operations are not going to perform.
+
+-----------------
+	Important Points
+-----------------
+Blocking Send and Receive :
+-> In the channel when the data sent to a channel the control is blocked in that send statement until other go-routine reads from that channel.
+	Similarly, when a channel receives data from the go-routine the read statement block until another go-routine statement.
+Zero Value Channel :
+-> The zero value of the channel is nil.
+For loop in Channel :
+-> A for loop can iterate over the sequential values sent on the channel until it closed.
+	
+	Syntax:
+	for item := range Chnl { 
+	     // statements..
+	}
+	
+	Example :
+		func main() { 
+	  
+	    // Creating a channel 
+	    // Using make() function 
+	    mychnl := make(chan string) 
+	  
+	    // Anonymous goroutine 
+	    	go func() { 
+		        mychnl <- "GFG"
+		        mychnl <- "gfg"
+		        mychnl <- "Geeks"
+		        mychnl <- "GeeksforGeeks"
+		        close(mychnl) 
+		    }() 
+	  
+	    // Using for loop 
+	    	for res := range mychnl { 
+	        	fmt.Println(res) 
+	    	} 
+		} 
+
+Length of the Channel :
+-> In channel, you can find the length of the channel using len() function. 
+-> Here, the length indicates the number of value queued in the channel buffer.
+	Example :
+		func main() { 
+		    mychnl := make(chan string, 4) 
+		    mychnl <- "GFG"
+		    mychnl <- "gfg"
+		    mychnl <- "Geeks"
+		    mychnl <- "GeeksforGeeks"
+		  
+		    // Finding the length of the channel 
+		    // Using len() function 
+		    fmt.Println("Length of the channel is: ", len(mychnl)) 
+		}
+
+Capacity of the Channel :
+-> In channel, you can find the capacity of the channel using cap() function. Here, the capacity indicates the size of the buffer.
+-> In above example, you can add this print statements.
+	fmt.Println("Capacity of the channel is: ", cap(mychnl)) 
+
+Select and case statement in Channel :
+-> In go language, select statement is just like a switch statement without any input parameter.
+-> This select statement is used in the channel to perform a single operation out of multiple operations provided by the case block.
+
+-----------------
 	Function Literal or Anonymous Go-routine
-------------------
+-----------------
 -> You can also start Go-routine for an anonymous function.
 -> OR in other words, you can create an anonymous Go-routine simply by using go keyword as a prefix of that function as shown in the below :
 	Syntax : 
