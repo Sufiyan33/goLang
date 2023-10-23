@@ -106,5 +106,16 @@ Parallelism - Multiple threads executed at the exact same time. It requires mult
 	Wait for a value to be sent into the channel. When we get one, print into console.
 	
 ------------------
-	Function Literal or Anonymous
+	Function Literal or Anonymous Go-routine
 ------------------
+-> You can also start Go-routine for an anonymous function.
+-> OR in other words, you can create an anonymous Go-routine simply by using go keyword as a prefix of that function as shown in the below :
+	Syntax : 
+		go func (parameter_list){
+		// statement
+		}(arguments) OR ()
+		
+	Example :
+		go func() { 
+       	 	fmt.Println("Welcome!! to GeeksforGeeks") 
+    	}() 
