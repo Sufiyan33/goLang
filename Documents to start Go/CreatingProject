@@ -8,8 +8,9 @@ This project will have below functions or part :
 4 : Deal - Create a hand of cards.
 5 : saveToFile - Save a list of cards to a file on the local machine.
 6 : newDeckFromFile - Load a list of cards from the local machine.
-
-Variable Declarations :
+----------------------
+	Variable Declarations :
+----------------------
 	-> Before going to explain variable let's check which types of Go language is?
 	-> There are two types of languages :
 		1- Dynamic Types : ex JavaScript, Ruby, Python etc.
@@ -39,8 +40,9 @@ Variable Declarations :
 		bool							false
 		
 	-> Remember, like as java you can also define variable outside of the function and access or assign value inside the function.
-
-Method Declarations :
+----------------------
+	Method Declarations :
+----------------------
 	Like as java you can declare method in go but here the structures are changed. Let see how?
 	example : 
 		func newCard() String{
@@ -60,8 +62,9 @@ Method Declarations :
 	func newCard() string{
 		return "Declaring method here"
 	}
-	
+----------------------	
 Array, Slices and for Loops :
+----------------------
 	GoLand uses two types of data structure :
 	1 - Array : has fixed length of size
 	2 - Slices : it similar to array that can grow and shrink depends on requirements(Dynamic array)
@@ -89,8 +92,9 @@ Array, Slices and for Loops :
 		for i, card := range cards{
 			fmt.Println(i, card)	
 		}
-		
-Important :: 
+----------------------		
+	Important :: 
+----------------------
 1 - If you are declaring any variable and not using any where then Go Compiler will give you compilation issue.
 	 To avoid this issue replace variable with under score ('_').
 2 - When you create a slice then Go internally generate 3 things for slice.
@@ -98,15 +102,18 @@ Important ::
 	2 : is capacity - tells the capacity or size of slice
 	3 : is length - tells length of slice
 
-OOPS Approach vs Go Approach :
+----------------------
+	OOPS Approach vs Go Approach :
+----------------------
 	-> Go is not a Object oriented programming language. Hence There is no concept of classes in Go.
 	-> We can use Deck class which have some properties and give privileges that how to create instances and all.
 	-> you can use customize way to handle it :
 		like : type deck []string
 				OR
 			   Function with 'deck' as a receiver
-	
+----------------------
 	Custom type declaration :
+----------------------
 	-> you can also declare slice like below :
 		type deck []string
 	-> Remember this point type deck == []string   :: both are equal
@@ -115,8 +122,9 @@ OOPS Approach vs Go Approach :
 	-> you can write above example like as below :
 		type deck []string
 		cards := deck{"Diamond", "star", "Two"}
-	
+----------------------
 	Receiver Functions:
+----------------------	
 	-> Any variable of type "deck" now gets access to the "print" method.
 	Example :
 		func (d deck) print(){
@@ -127,8 +135,9 @@ OOPS Approach vs Go Approach :
 		 
 		-> d - Actually copy of the deck we are working with is available in the function as a variable called 'd'.(you can think as a reference variable)
 		-> deck - Every variable of type 'deck' can call this function on itself.
-	
-Create a new Deck :
+----------------------	
+	Create a new Deck :
+----------------------
 	-> Added new deck in deck.go file
 	-> Don't forget to check that file, I also added suit & value
 		Example :
@@ -146,8 +155,10 @@ Create a new Deck :
 		fruits[0 : 2] - it means start from zero & up to 2 but not include 2(means 0,1).
 		fruits[ : 2] - it means start from zero up to 2 but not include 2(means 0,1).
 		fruits[2 : ] - it means start from 2 till end
-		
-Multiple Return values :
+
+----------------------	
+	Multiple Return values :
+----------------------
 	-> Function can return multiple values and when someone calls this method then you have to store it.
 	-> As we know if you have declare a deck then deck can call any method having receivers type deck.
 		Example :	
@@ -157,7 +168,9 @@ Multiple Return values :
 	-> And the time of calling this method will also return value hence store them like below :
 		hand, remainingCards := deal(cards, 5)
 
-Byte Slices :
+----------------------
+	Byte Slices :
+----------------------
 	-> You can go official webSite of GoLand -> packages & then explore "ioutil" package. Inside this you will found lots of package but click on
 		writeFile and once check it's parameter. It accepting []bytes.
 	-> If you will open asciitable.com then you will be able to see list of character and their values.
@@ -172,8 +185,9 @@ Byte Slices :
 		greeting := "Hi There!!!"
 		fmt.Println([]byte(greeting))
 		Output : [72 105 32 84 104 101 114 101 33 33 33]
-
-Saving Data to hard drive :
+----------------------
+	Saving Data to hard drive :
+----------------------
 	-> Question : How to convert deck into string?
 	-> Answer : convert deck in byte by using one by one steps :
 		deck -> []string -> string -> []byte
@@ -186,8 +200,10 @@ Saving Data to hard drive :
 				return ioutil.WriteFile(fileName, []byte(d.toString()), 0666)
 			}
 			then go to main.go and call this function to save cards.
-			
-Reading File from hard drive :
+
+----------------------		
+	Reading File from hard drive :
+----------------------
 	-> For this just explore the packages(ioutils) & need to import correct one. It provide a lots of method just use ReadFile fun
 	-> Remember ReadFile func also dealing with error hence don't forget to handle error which comes under os package
 	Example :
@@ -205,7 +221,9 @@ Reading File from hard drive :
 	return deck(s)
 	}
 	
-Shuffle deck :
+----------------------
+	Shuffle deck :
+----------------------
 	-> Means take a card and change the location
 	-> We don't have any in-build function to shuffle cards
 	-> For this, write for loop, generate a random number which comes under random package & then swap it.
@@ -221,7 +239,9 @@ Shuffle deck :
 			}
 		}
 
-Testing with Go :
+----------------------
+	Testing with Go :
+----------------------
 	-> Remember that Go is not supporting any testing framework like : Rspec, mocha, jasmine, selenium, Junit etc
 	-> Go provides a very small interface to do testing.
 	-> To create a new test file, create a file ending with _test.go.
