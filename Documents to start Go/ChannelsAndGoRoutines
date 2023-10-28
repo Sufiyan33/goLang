@@ -16,8 +16,17 @@ Go language provides a special feature known as a Go-routines.
 -> But Go-routines behave slightly differently when it uses multiple CPU's.
 -> Scheduler runs one thread on each "logical" core.
 
-Concurrency - We can have multiple threads executing code. If one thread blocks, another one is picked up & worked on.
-Parallelism - Multiple threads executed at the exact same time. It requires multiple CPU's.
+Concurrency :
+-> We can have multiple threads executing code. 
+-> If one thread blocks, another one is picked up & worked on.
+-> In other words, concurrency is a property of a program that allows you to have multiple tasks in progress at the same time,
+	but not necessarily executing at the same time.
+-> he key tools for concurrency in Golang are go-routines and channels. 
+-> Go-routines are concurrent lightweight threads while channels allow go-routines to communicate with each other during execution.
+
+Parallelism :
+-> Multiple threads executed at the exact same time. It requires multiple CPU's.
+-> Parallelism is a runtime property where two or more tasks are executed at the same time.
 
 -----------------
 	Create Go-routine
