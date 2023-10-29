@@ -276,5 +276,80 @@ Answer : Below are the code :
 				fmt.Println(num, "is odd %v")
 			}
 		}
-	} 
-	 
+	}
+
+----------------------	
+	Ellipsis (…)
+----------------------
+-> The three dots (…) in Golang is termed as Ellipsis which is used in the variadic function.
+-> The function that called with the varying number of arguments is known as variadic function.
+-> Or in other words, a user is allowed to pass zero or more arguments in the variadic function. 
+-> fmt.Printf is the example of the variadic function, it required one fixed argument at the starting after that
+	it can accept any number of arguments.
+-> The last parameter of the variadic function is always using the Ellipsis. It means it can accept any number of arguments.
+	Example :
+		func main() {
+		    sayHello()
+		    sayHello("Rahul")
+		    sayHello("Mohit", "Rahul", "Rohit", "Johny")
+		}
+  
+		// using Ellipsis
+		func sayHello(names ...string) {
+		    for _, n := range names {
+		        fmt.Printf("Hello %s\n", n)
+		    }
+		}
+----------------------
+	Variadic Functions
+----------------------
+-> The function that called with the varying number of arguments is known as variadic function.
+-> Or in other words, a user is allowed to pass zero or more arguments in the variadic function. 
+-> fmt.Printf is the example of the variadic function, it required one fixed argument at the starting after that
+	it can accept any number of arguments.
+-> The last parameter of the variadic function is always using the Ellipsis. It means it can accept any number of arguments.
+-> it indicates that the function can be called at any number of parameters of this type.
+	Syntax :
+		function function_name(para1, para2...type)type 
+			{// code...}
+		
+-> When you do not pass any argument in the variadic function, then the slice inside the function is empty.
+-> The variadic functions are generally used for functions that perform string formatting.
+-> You can also pass multiple slices in the variadic function.
+-> You can not use variadic parameter as a return value, but you can return it as a slice.
+	Example :
+		// Variadic function to join strings
+		func joinstr(elements ...string) string {
+		    return strings.Join(elements, "-")
+		}
+		 
+		func main() {
+		 
+		    // zero argument
+		    fmt.Println(joinstr())
+		 
+		    // multiple arguments
+		    fmt.Println(joinstr("GEEK", "GFG"))
+		    fmt.Println(joinstr("Geeks", "for", "Geeks"))
+		    fmt.Println(joinstr("G", "E", "E", "k", "S"))
+		 
+		}
+	OR 
+		// Variadic function to join strings
+		func joinstr(elements ...string) string {
+		    return strings.Join(elements, "-")
+		}
+		 
+		func main() {
+		    // pass a slice in variadic function
+		    elements := []string{"geeks", "FOR", "geeks"}
+		    fmt.Println(joinstr(elements...))
+		}
+		
+When should we use :
+-> Variadic function is used when we don’t know the number of parameters.
+-> Variadic functions can be used instead of passing a slice to a function.
+-> When you use variadic function in your program, it increases the readability of your program.
+-> Variadic functions are especially useful when the arguments to your function are most likely not going to 
+	come from a single data structure (i.e. slice or array etc.).
+-> In such cases using variadic functions avoids the creation of a data structure to just pass in the arguments to a function.
