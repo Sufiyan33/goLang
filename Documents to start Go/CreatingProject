@@ -92,15 +92,34 @@ Array, Slices and for Loops :
 		for i, card := range cards{
 			fmt.Println(i, card)	
 		}
+
+----------------------		
+	Blank Identifier
+----------------------
+-> _(underscore) in Golang is known as the Blank Identifier.
+-> Identifiers are the user-defined name of the program components used for the identification purpose.
+-> Golang has a special feature to define and use the unused variable using Blank Identifier.
+-> If you are declaring any variable and not using any where then Go Compiler will give you compilation issue.
+	 To avoid this issue replace variable with under score ('_').
+-> These variables make the program almost unreadable.
+-> The real use of Blank Identifier comes when a function returns multiple values, but we need only a few values and want to discard some values.
+-> Basically, it tells the compiler that this variable is not needed and ignored it without any error.
+-> Here, we can use underscore to hide that unused variables.
 ----------------------		
 	Important :: 
 ----------------------
 1 - If you are declaring any variable and not using any where then Go Compiler will give you compilation issue.
 	 To avoid this issue replace variable with under score ('_').
-2 - When you create a slice then Go internally generate 3 things for slice.
-	1 : is ptr to head - ptr pint to element of array 
-	2 : is capacity - tells the capacity or size of slice
-	3 : is length - tells length of slice
+2 - When you create a slice then Go internally generate 3 things for slice :
+	1 : is ptr to head - ptr pint to element of array.
+	2 : is capacity - tells the capacity or size of slice.
+	3 : is length - tells length of slice.
+-> You can use multiple Blank Identifiers in the same program.
+	So you can say a Golang program can have multiple variables using the same identifier name which is the blank identifier.
+-> There are many cases that arise the requirement of assignment of values just to complete the syntax even knowing that the
+	values will not be going to be used in the program anywhere. 
+	Like a function returning multiple values. Mostly blank identifier is used in such cases.
+-> You can use any value of any type with the Blank Identifier.
 
 ----------------------
 	OOPS Approach vs Go Approach :
