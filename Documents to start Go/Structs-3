@@ -2,11 +2,41 @@ Here, we will learn what is Structs?
 -------------------------
 		STRUCT
 -------------------------
+-> A structure or struct in Golang is a user-defined type that allows to group/combine items of possibly different types into a single type.x
 -> Struct is a data structure in GoLang. It is a collection of properties that are related to together.
-	It is very similar to JavaScript struct or similar to Hash in Ruby language.
-		Example :
-		suite -> String
-		value -> String
+-> It is very similar to JavaScript struct or similar to Hash in Ruby language.
+-> This concept is generally compared with the classes in object-oriented programming.
+-> It can be termed as a lightweight class that does not support inheritance but supports composition.
+-> For Example, an address has a name, street, city, state, Pincode. It makes sense to group these three properties
+	into a single structure address as shown below.
+
+-> Declaring a structure:
+
+	type Address struct {
+	      name string 
+	      street string
+	      city string
+	      state string
+	      Pincode int
+	}
+
+-> We can also write above code like below ::
+	type Address struct {
+	    name, street, city, state string
+	    Pincode int
+	}
+
+-> To Define a structure: The syntax for declaring a structure:
+	Syntax : 
+		var a Address
+
+-> The above code creates a variable of a type Address which is by default set to zero.
+-> For a struct, zero means all the fields are set to their corresponding zero value.
+-> So the fields name, street, city, state are set to “”, and Pincode is set to 0.
+
+-> You can also initialize a variable of a struct type using a struct literal as shown below:
+	var a = Address{"Sufiyan", "Ahmad", "Bangalore", "Karnatka", 560037}
+
 -> It is widely used in GoLang. So read it carefully.
 -> Whenever you want to create a structs before that just define all the properties which structs may have.
 ------------
@@ -132,6 +162,20 @@ Reference Types : with these don't worry about pointer (mean no need to pointer 
 				string									channels
 				bool									pointers
 				structs									functions
+
+-------------------------
+	Advantages
+-------------------------
+-> Encapsulation: Structures allow you to encapsulate related data together, making it easier to manage and modify the data.
+-> Flexibility: Structures allow you to define custom types with their own behavior, making it easier to work with complex data.
+-> Type safety: Structures provide type safety by allowing you to define the type of each field, which helps to prevent errors caused by assigning the wrong type of value.
+-> Efficiency: Structures in Go are very efficient, both in terms of memory usage and performance.
+
+-------------------------
+	Disadvantages
+-------------------------
+-> 
+
 
 
 
