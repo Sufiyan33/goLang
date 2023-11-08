@@ -174,7 +174,22 @@ Reference Types : with these don't worry about pointer (mean no need to pointer 
 -------------------------
 	Disadvantages
 -------------------------
--> 
+-> Complexity: Structures can make code more complex, especially if the structures have a large number of fields or methods.
+-> Boilerplate code: When defining large structures with many fields, it can be time-consuming to write out all of the field names and types.
+-> Immutability: Go structures are mutable by default, which can make it more difficult to enforce immutability in your code.
+
+-------------------------
+	Important points
+-------------------------
+-> Structures are composite data types that allow you to group together related data of different types.
+-> Structures can have fields that are of any type, including other structures.
+-> Fields can be accessed using the dot (.) operator.
+-> Structures in Go can also have methods associated with them.
+-> Methods can be defined on structures using the receiver syntax.
+-> Structures can be used to create custom types that encapsulate related data and behavior.
+-> Go structures are mutable by default, but you can create immutable structures by using pointers or methods that return a new instance of the structure.
+-> Structures in Go are very efficient in terms of both memory usage and performance.
+-> Go does not support inheritance, but you can use composition to achieve similar results.
 
 
 
