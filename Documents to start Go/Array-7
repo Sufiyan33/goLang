@@ -51,4 +51,29 @@
 -> There is no uninitialized concept in the Golang.
 	Example :
 		arr := [2][2]string{{"sufiyan", "ahmad"}, {"Go", "GoLang"}}
-	
+		
+----------------------
+	Important points
+----------------------
+-> If array is not initialized then the value of array is zero.
+-> If ellipsis "..." is used instead of array length. In this case you can calculate length by using initialized elements.
+	Example :
+		arr := [...]string{"suf", "ahmad", "Go", "amazing"}
+		fmt.println(len(arr))
+-> In above example only 4 values are initialized hence size of array is 4.
+-> In Go, Array is value type not reference.
+-> Hence, when the array is assigned to a new variable, post that changes made in new variable that do not affect to original array.
+	Example :
+		arr := [...]int{2,3,11,10,13,15}
+		fmt.println("Original array :: ", arr)
+		
+		// Assigning to new variable
+		
+		myArray := arr
+		fmt.println("Original array :: ", arr)
+		
+		// making changes in new array 
+		myArray[0] = 50
+		fmt.println("modified newArray :: ", myArray)
+		
+			
