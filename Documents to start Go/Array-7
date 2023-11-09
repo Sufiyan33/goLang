@@ -1,0 +1,54 @@
+----------------------
+	Array
+----------------------
+-> Array or very similar like other languages.
+-> Array are used to store homogeneous types of data.
+-> It has fixed length, that's why it is not preferable over to slice.
+-> You can access array element by using index like array[0] ...
+-> You can find lenth of the array by using len() method like array[len(array)].
+
+----------------------
+	Creating and accessing an Array
+----------------------
+-> You can create arrays by using two approach :
+-------------------
+	Approach 1 :
+-------------------
+-> an array is created using the var keyword of a particular type with name, size, and elements.
+	Syntax :
+		Var array_name[length]Type
+
+-> In Go, arrays are mutable, so that you can use array[index] syntax to the left-hand side of the assignment to set the 
+	elements of the array at the given index. Like below :
+	Var array_name[index] = element
+-> You can access the elements of the array by using the index value or by using for loop.
+-> In Go language, the array type is one-dimensional.
+-> The length of the array is fixed and unchangeable.
+-> You are allowed to store duplicate elements in an array.
+
+-------------------
+	Approach 2 :
+-------------------
+-> You can also declare array using shorthand declaration.
+-> It is more flexible than the approach 1.
+	Syntax : 
+		array_name := [length]Type{item1, item2, item3, ... itemN}
+	Example :
+		arr := [3]string{"Sufiyan", "Ahmad", "Go"}
+-> You can access array elements using for loops.
+
+----------------------
+	Multi-Dimensional Array
+----------------------
+-> Since we already know that there is only 1-D array in Go but you can also create Multi-Dimensional arrays.
+-> USing both approach var and shorthand.
+	Syntax :
+		var array_name[length]Type
+	OR
+		array_name[length1][length2][length3][length4]Type
+
+-> In a multi-dimension array, if a cell is not initialized with some value by the user,hen it will initialize with zero by the compiler automatically.
+-> There is no uninitialized concept in the Golang.
+	Example :
+		arr := [2][2]string{{"sufiyan", "ahmad"}, {"Go", "GoLang"}}
+	
