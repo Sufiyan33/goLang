@@ -174,7 +174,43 @@ Reference Types : with these don't worry about pointer (mean no need to pointer 
 	variable_name := struct{
 		// fields
 	}{// Field_values}
-
+	
+	Example :
+		element := struct{
+			name string
+			branch string
+			language string
+			particles int
+		}{
+			name: "Sufiyan",
+			branch: "CSE",
+			language: "Go",
+			particles 476,
+		}
+		fmt.println(element)
+		
+-------------------------
+	Anonymous Fields
+-------------------------
+-> You can also create anonymous fields in Go.
+-> Anonymous fields are those which do not contain any name, you just simply mentions the type of the field and go will automatically 
+	use the type as name.
+	Example :
+		type Student struct{
+			int
+			bool
+			string
+		}
+-> You are not allowed to create two or more fields with same type like below :
+	Example :
+		type Student struct{
+			int
+			int
+			string
+		}
+-> If you will try to do then Go compiler will give you error.
+-> To avoid above issue, you should define name instead of type.
+-> Check code for example
 
 -------------------------
 	Advantages
