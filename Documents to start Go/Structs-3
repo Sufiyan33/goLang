@@ -164,6 +164,19 @@ Reference Types : with these don't worry about pointer (mean no need to pointer 
 				structs									functions
 
 -------------------------
+	Anonymous Structure
+-------------------------
+-> In Go language, you are allowed to create an anonymous structure.
+-> An anonymous structure is a structure which does not contain a name.
+-> It useful when you want to create a one-time usable structure.
+-> You can create an anonymous structure using the following :
+	Syntax :
+	variable_name := struct{
+		// fields
+	}{// Field_values}
+
+
+-------------------------
 	Advantages
 -------------------------
 -> Encapsulation: Structures allow you to encapsulate related data together, making it easier to manage and modify the data.
@@ -190,10 +203,3 @@ Reference Types : with these don't worry about pointer (mean no need to pointer 
 -> Go structures are mutable by default, but you can create immutable structures by using pointers or methods that return a new instance of the structure.
 -> Structures in Go are very efficient in terms of both memory usage and performance.
 -> Go does not support inheritance, but you can use composition to achieve similar results.
-
-
-
-
-
-
-	
