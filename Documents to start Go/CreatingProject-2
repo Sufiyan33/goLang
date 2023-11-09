@@ -364,8 +364,9 @@ Answer : Below are the code :
 		    elements := []string{"geeks", "FOR", "geeks"}
 		    fmt.Println(joinstr(elements...))
 		}
-		
-When should we use :
+----------------------	
+	When should we use :
+----------------------
 -> Variadic function is used when we don’t know the number of parameters.
 -> Variadic functions can be used instead of passing a slice to a function.
 -> When you use variadic function in your program, it increases the readability of your program.
