@@ -137,3 +137,14 @@
 	
 		fmt.Println("Original array :: ", originalArray3)
 		fmt.Println("Copy array :: ", copyArray3)
+
+-----------------------		
+	pass an Array to a Function
+-----------------------
+-> YOu can also pass an array to a function.
+	Example :
+		func printArray(array []int) {
+		    for _, value := range array {
+		        fmt.Println(value)
+		    }
+		}
