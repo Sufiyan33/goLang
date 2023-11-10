@@ -60,6 +60,7 @@
 	Example :
 		arr := [...]string{"suf", "ahmad", "Go", "amazing"}
 		fmt.println(len(arr))
+		
 -> In above example only 4 values are initialized hence size of array is 4.
 -> In Go, Array is value type not reference.
 -> Hence, when the array is assigned to a new variable, post that changes made in new variable that do not affect to original array.
@@ -75,5 +76,64 @@
 		// making changes in new array 
 		myArray[0] = 50
 		fmt.println("modified newArray :: ", myArray)
+
+----------------------		
+	Copy an Array into Another Array
+----------------------
+-> Golang does not provide a specific built-in function to copy one array into another array.
+-> But we can create a copy of an array by simply assigning an array to a new variable by value or by reference.
+-> If we create a copy of an array by value and made some changes in the values of the original array, then it will not reflect in the copy of that array.
+-> And if we create a copy of an array by reference and made some changes in the values of the original array, then it will reflect in the copy of that array.
+	Example :
+	// creating a copy of an array by value
+	arr := arr1
+	
+	// Creating a copy of an array by reference
+	arr := &arr1
+
+-> ArraysDemo.go file for code.
+
+-> There are multiple ways to copy an array into another array. Let's see one by one.
+-> Here, we will look most suitable methods for copying in Go.
+-----------------------
+	1 : Using a loop 
+-----------------------
+-> We can also do this by using a loop.
+	Example : 
+		originalArray := [...]int{1, 2, 3, 4, 5, 6}
+		copyArray := make([]int, len(originalArray))
+	
+		for i, value := range originalArray {
+			copyArray[i] = value
+		}
+		fmt.Println("Original array :: ", originalArray)
+		fmt.Println("Copy array :: ", copyArray)
+
+-----------------------
+	2 : Using copy function 
+-----------------------
+-> We can also do using copy function.
+	Example :
+		originalArray2 := []int{1, 2, 3, 4, 5, 6}
+		copyArray2 := make([]int, len(originalArray))
+	
+		copy(copyArray2, originalArray2)
+	
+		fmt.Println("Original array :: ", originalArray2)
+		fmt.Println("Copy array :: ", copyArray2)
 		
-			
+-----------------------
+	3 : Using append function 
+-----------------------
+-> We can also use append function.
+	Example :
+		originalArray3 := []int{1, 2, 3, 4, 5, 6}
+		copyArray3 := make([]int, len(originalArray))
+		//If you will write make method like above then it will add 0's as the size of length in the starting.
+		//to avoid this issue add 0 in make function like below :
+		copyArray3 := make([]int, 0,len(originalArray))
+	
+		copyArray3 = append(copyArray3, originalArray3...)
+	
+		fmt.Println("Original array :: ", originalArray3)
+		fmt.Println("Copy array :: ", copyArray3)
