@@ -4,4 +4,5 @@ func main() {
 	sliceFromArray()
 	modifySlice()
 	modifySliceUsignCopyfunc()
+	removeElementBasedonIndex()
 }
