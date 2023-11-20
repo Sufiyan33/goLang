@@ -37,3 +37,37 @@ func EnodeJson() {
 	finalJson1, _ := json.MarshalIndent(courseDetails, "", "\t")
 	fmt.Printf("%s\n", finalJson1)
 }
+
+func DecodeJson() {
+	jsonDataFromWeb := []byte(`
+	{
+		"courseName": "Java BootCamp",
+		"Price": 999,
+		"website": "udemy.com",
+		"tags": [
+				"Back-end",
+				"Java"
+		]	
+	}
+	`)
+	var myCourse course
+	validJson := json.Valid(jsonDataFromWeb)
+	if validJson {
+		fmt.Println("JSON is valid")
+		json.Unmarshal(jsonDataFromWeb, &myCourse)
+		fmt.Printf("%#v\n", myCourse)
+	} else {
+		fmt.Println("JSON is not valide")
+	}
+
+	// some case where we need data in the for key value pair. Hence create map
+
+	var onlineCourse map[string]interface{}
+	json.Unmarshal(jsonDataFromWeb, &onlineCourse)
+	fmt.Printf("%#v\n", onlineCourse)
+
+	// Now let use for loop to iterate map
+	for k, v := range onlineCourse {
+		fmt.Printf("Key is %v & value is %v and Type is: %T \n", k, v, v)
+	}
+}
