@@ -1,0 +1,1 @@
+Welcode to the File handling in Go... let see how to deal with this
