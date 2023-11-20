@@ -9,4 +9,5 @@ func main() {
 	fmt.Println("Welcome to go lang in the section of Json data handling")
 
 	EnodeJson()
+	DecodeJson()
 }
