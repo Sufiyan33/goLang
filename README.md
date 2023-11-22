@@ -6,3 +6,14 @@ Although I tried to display some content using html.
 # Libraries :
 - **Frame work** : mux framework
 - **ORM** : gorm
+- **Database** : mysql
+
+# Component
+- Module
+- Controller
+- Config
+- Model
+- utils
+- Routes
+
+# Architecture
