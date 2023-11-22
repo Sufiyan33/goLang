@@ -4,5 +4,5 @@ As of now I developed book management systems in backend & also tested with **Th
 Although I tried to display some content using html.
 
 # Libraries :
--- **Frame work** : mux framework
--- **ORM** : gorm
+- **Frame work** : mux framework
+- **ORM** : gorm
