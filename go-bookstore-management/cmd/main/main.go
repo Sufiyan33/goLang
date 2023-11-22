@@ -10,8 +10,10 @@ import (
 )
 
 func main() {
+	homePage := http.FileServer(http.Dir("./cmd"))
 	r := mux.NewRouter()
-	routes.RegisterBookStoreRouters(r)
+	routes.RegisterBookStoreRoutes(r)
 	http.Handle("/", r)
-	log.Fatal(http.ListenAndServe("9000", r))
+	http.Handle("/home", homePage)
+	log.Fatal(http.ListenAndServe("localhost:9000", r))
 }

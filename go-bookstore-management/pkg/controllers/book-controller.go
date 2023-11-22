@@ -13,7 +13,7 @@ import (
 
 var NewBook models.Book
 
-func GeBook(w http.ResponseWriter, r *http.Request) {
+func GetBook(w http.ResponseWriter, r *http.Request) {
 	newBooks := models.GetAllBook()
 	res, _ := json.Marshal(newBooks)
 	w.Header().Set("Content-Type", "application/json")
@@ -36,7 +36,7 @@ func GetBookByID(w http.ResponseWriter, r *http.Request) {
 }
 
 func CreateBook(w http.ResponseWriter, r *http.Request) {
-	createBook := &models.Book()
+	createBook := &models.Book{}
 	utils.ParseBody(r, createBook)
 	b := createBook.CreateBook()
 	res, _ := json.Marshal(b)
@@ -52,7 +52,7 @@ func DeleteBook(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		fmt.Println("error while parsing data")
 	}
-	book := models.Delete(id)
+	book := models.DeleteBook(id)
 	res, _ := json.Marshal(book)
 	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(http.StatusOK)
@@ -60,7 +60,7 @@ func DeleteBook(w http.ResponseWriter, r *http.Request) {
 }
 
 func UpdateBook(w http.ResponseWriter, r *http.Request) {
-	var updateBook = &models.Boook{}
+	var updateBook = &models.Book{}
 	utils.ParseBody(r, updateBook)
 	params := mux.Vars(r)
 	bookId := params["bookId"]
