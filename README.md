@@ -19,3 +19,15 @@ Although I tried to display some content using html.
 # Package Structor
 - cmd
     - main
+         - main.go
+     
+- config
+      - app.go
+- controllers
+      - book-controller.go
+- models
+      - book.go
+- routes
+      - bookstore-routes.go
+- utils
+      - utils.go
