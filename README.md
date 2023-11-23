@@ -4,9 +4,10 @@ As of now I developed book management systems in backend & also tested with **Th
 Although I tried to display some content using html.
 
 # Libraries :
-- **Frame work** : mux framework
+- **Frame work** : Gorilla mux framework
 - **ORM** : gorm
 - **Database** : mysql
+- **JSON marshall, unmarshal**
 
 # Component
 - Module
@@ -31,3 +32,8 @@ Although I tried to display some content using html.
     - bookstore-routes.go
 - utils
     - utils.go
+
+# Controllers Functions/Endpoints
+# Function                # EndPoints                    #Http verbs
+- GetBooks                    /book                          POST
+
