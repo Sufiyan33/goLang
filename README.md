@@ -33,7 +33,14 @@ Although I tried to display some content using html.
 - utils
     - utils.go
 
-# Controllers Functions/Endpoints
-# Function                # EndPoints                    #Http verbs
-- GetBooks                    /book                          POST
+# Controllers Functions & Endpoints
+
+|      Functions          |      Endpoints          |    Http verbs
+|-------------------------|-------------------------|-------------------------
+|  CreateBook             |   /book                 |    POST
+|  GetBooks               |   /book                 |    GET
+|  GetBookById            |   /book/{bookId}        |    GET
+|  UpdateBook             |   /book/{bookId}        |    PUT
+|  DeleteBook             |   /book/{bookId}        |    DELETE
+
 
