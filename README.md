@@ -16,4 +16,6 @@ Although I tried to display some content using html.
 - utils
 - Routes
 
-# Architecture
+# Package Structor
+- cmd
+    - main
