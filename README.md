@@ -22,12 +22,12 @@ Although I tried to display some content using html.
          - main.go
      
 - config
-      - app.go
+    - app.go
 - controllers
-      - book-controller.go
+    - book-controller.go
 - models
-      - book.go
+    - book.go
 - routes
-      - bookstore-routes.go
+    - bookstore-routes.go
 - utils
-      - utils.go
+    - utils.go
