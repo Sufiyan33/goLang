@@ -1,0 +1,42 @@
+<html>
+    <div>
+        <h1>Go Websocket Todo Example</h1>
+        <p>Available commands for to do apps</p>
+        <p>- add [task]</p>
+        <p>- done [task]</p>
+        <input id = "input" type="text" size="40" />
+        <button onclick="send()">Send</button>
+        <pre id="outout"></pre>>
+    </div>
+    <style>
+        html {
+            text-align: center;
+            font-size: 16px;
+        }
+        div{
+            padding: 1rem;
+        }
+        #input{
+            font-size: 16px;
+        }
+        p{
+            font-size: 16px;
+        }
+    </style>
+    <script>
+        var input = document.getElementById("input")
+        var outout = document.getElementById("output")
+        var socket = new WebSocket("ws://localhost:8000/todo")
+        
+        socket.onopen = function(){
+            outout.innerHTML += "Status: Connected\n"; 
+        };
+        socket.onmessage = function(e){
+            output.innerHTML += "\nServer: " + e.data + "\n";
+        };
+        function send(){
+            socket.send(input.value);
+            input.value = "";
+        }
+    </script>
+</html>
