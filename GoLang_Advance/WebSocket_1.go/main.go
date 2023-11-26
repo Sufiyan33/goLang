@@ -18,7 +18,7 @@ func main() {
 		s.Emit("reply", "have "+msg)
 
 		s.join("chat")
-		
+
 	})
 
 	fs := http.FileServer(http.Dir("static"))
